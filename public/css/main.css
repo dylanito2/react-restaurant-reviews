@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900');
+
+body{
+
+  background:black;
+  font-family:'Montserrat';
+}
+.form-fields{
+  border-color:white;
+  border-radius:0;
+  background-color:rgba(255,255,255,0.1);
+  color:white;
+  height:50px;
+  outline:none;
+  font-size:20px;
+}
+.form-container{
+  bottom:0;
+  margin-top: 50px;
+
+
+  bottom:10px !important;
+}
+form{
+  position:relative;
+  bottom:10px !important;
+}
+.form-fields:focus{
+  box-shadow:none;
+  outline:none;
+  color:white;
+  border-color:#9E33F5;
+  background:rgba(0,0,0,0);
+}
+input:focus{
+  box-shadow:none;
+  outline:none;
+  background:rgba(0,0,0,0);
+  color:white;
+  border-color:#9E33F5;
+}
+.giphy-box{
+  width:55%;
+  height:450px;
+  border-radius:4px;
+  border: 2px solid #9E33F5;
+}
+.btn-classic{
+  /*			background-color:#9E33F5;*/
+  color:white;
+  font-size:26px;
+  font-family:'Montserrat';
+  font-weight:600;
+  width:100%;
+  border-radius:0;
+  height:60px;
+  /*			border:2px solid #9E33F5;*/
+  transition: ease-in-out 0.5s;
+
+  background: linear-gradient(270deg, #9e33f5, #dd307d);
+  background-size: 400% 400%;
+
+  -webkit-animation: AnimationName 8s ease infinite;
+  -moz-animation: AnimationName 8s ease infinite;
+  animation: AnimationName 8s ease infinite;
+
+}
+.btn-classic:hover{
+  transition: ease-in-out 0.2s;
+  font-size:26px;
+  background-color:#9E33F5;
+  font-weight:600;
+  color:white;
+  width:100%;
+  border-radius:0;
+  height:60px;
+}
+
+label{
+  color:white;
+  font-family:'Montserrat';
+  font-size:26px;
+  font-weight:600;
+}
+#showGif{
+  margin-top:20px;
+  margin-bottom:0;
+  text-align:center !important;
+}
+
+
+@-webkit-keyframes AnimationName {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+@-moz-keyframes AnimationName {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+@keyframes AnimationName {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}

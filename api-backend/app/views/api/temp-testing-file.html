@@ -1,0 +1,56 @@
+<!-- tempfile -->
+
+			$.get('http://localhost:3000?term=' + $term + '&location=' + $location, function(data){
+				let newData = JSON.parse(data)
+		
+				let score
+				debugger
+				if (newData['businesses'].length != 0) {
+					score = Math.floor(newData['businesses'][0]['rating'])
+				} else {
+					score = "fail"
+				}
+				console.log("score is: " + score)
+				console.log()
+				if (score < 3 ){
+					$wordbank = ['bad', 'gross', 'unpleasant', 'gross food', 'tastes bad', 'shitty food', 'danger', 'stinky', 'sick', 'horrible', 'yikes']	
+				}
+
+				else if (score === 3){
+					$wordbank =['eh', 'meh']
+				}
+				else if (score > 3){
+					$wordbank = ['yum', 'mmhmm', 'that\'s what i\'m talkin\' about', 'fantastic','delicious', 'so good', 'gourmet shit', 'yummy', 'scrumptious', 'nom', 'nom nom',
+					'nom nom nom']						
+				}
+				else {
+					$wordbank = ['fail']	
+				}
+					$searchTerm = $wordbank[Math.floor(Math.random() * $wordbank.length)]
+					console.log("search term: " + $searchTerm)
+				$url = "https://api.giphy.com/v1/gifs/search?q=" + $searchTerm + "&api_key=dc6zaTOxFJmzC"
+			
+				console.log($url);
+			
+				$.get( $url, function(data) {
+					
+					console.log(data);
+					
+					//data['data'][0]['images']['fixed_height']['url']
+					var newdata = $.map(data['data'], function(element) {
+	    			// data.forEach(function(item){
+						return	element['images']['fixed_height']['url']
+	    				//console.log(element['images']['fixed_height']['url'])
+	    			})	
+	    			
+	    			console.log(newdata)
+	    			
+	    			let arrayValue = Math.floor(Math.random() * newdata.length)
+
+	    			console.log(newdata[arrayValue] )
+	    			$("#showGif").html("<img class='giphy-box' src='" + newdata[arrayValue] + "'>")
+	    			if (score === 'fail'){
+	    				$("#showGif").append("<br><div class='fail-msg'>FAILED TO FIND RESULTS. DID YOU ENTER A REAL RESTAURANT?</div><br>")	    				
+	    			}
+				})
+			});
